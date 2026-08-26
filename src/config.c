@@ -125,7 +125,6 @@ getpythonpath()
 extern void inittime();
 extern void initmath();
 extern void initregexp();
-extern void initposix();
 #ifdef USE_AUDIO
 extern void initaudio();
 #endif
@@ -152,7 +151,6 @@ struct {
 	{"time",	inittime},
 	{"math",	initmath},
 	{"regexp",	initregexp},
-	{"posix",	initposix},
 
 
 	/* Optional modules */

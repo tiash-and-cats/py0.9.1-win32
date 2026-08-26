@@ -59,7 +59,7 @@ RANLIB =	ranlib	# For BSD
 # If your system doesn't have symbolic links, uncomment the following
 # line.
 
-#NOSYMLINKDEF=	-DNO_LSTAT
+NOSYMLINKDEF=	-DNO_LSTAT
 
 
 # Installation Options
@@ -312,6 +312,9 @@ DEFPYTHONPATH= .:/usr/local/lib/python:/ufs/guido/lib/python:../lib
 #AUDIO_SRC=	audiomodule.c asa.c
 #AUDIO_OBJ=	audiomodule.o asa.o
 
+# PATCH!
+%.o : %.c
+	$(CC) -c $(CPPFLAGS) $(CFLAGS) $^ -o $@
 
 # Major Definitions
 # =================
@@ -324,7 +327,7 @@ STANDARD_OBJ=	acceler.o bltinmodule.o ceval.o classobject.o \
 		intobject.o intrcheck.o listnode.o listobject.o \
 		mathmodule.o methodobject.o modsupport.o \
 		moduleobject.o node.o object.o parser.o \
-		parsetok.o posixmodule.o regexp.o regexpmodule.o \
+		parsetok.o regexp.o regexpmodule.o \
 		strdup.o $(STRERROR_OBJ) \
 		stringobject.o $(STRTOL_OBJ) structmember.o \
 		sysmodule.o timemodule.o tokenizer.o traceback.o \
@@ -447,37 +450,37 @@ clobber::	clean
 COMPILE=	$(CC) -c $(CFLAGS)
 
 amoebamodule.o:	amoebamodule.c
-		$(COMPILE) $(AM_INCL) $*.c
+		$(COMPILE) $(AM_INCL) amoebamodule.c
 
 config.o:	config.c Makefile
-		$(COMPILE) $(CONFIGDEFS) $(CONFIGINCLS) $*.c
+		$(COMPILE) $(CONFIGDEFS) $(CONFIGINCLS) config.c
 
 fgetsintr.o:	fgetsintr.c
-		$(COMPILE) $(SIGTYPEDEF) $*.c
+		$(COMPILE) $(SIGTYPEDEF) fgetsintr.c
 
 intrcheck.o:	intrcheck.c
-		$(COMPILE) $(SIGTYPEDEF) $*.c
+		$(COMPILE) $(SIGTYPEDEF) intrcheck.c
 
 panelmodule.o:	panelmodule.c
-		$(COMPILE) $(PANEL_INCL) $*.c
+		$(COMPILE) $(PANEL_INCL) panelmodule.c
 
 posixmodule.o:	posixmodule.c
-		$(COMPILE) $(SYSVDEF) $(NOSYMLINKDEF) $*.c
+		$(COMPILE) $(SYSVDEF) $(NOSYMLINKDEF) posixmodule.c
 
 sc_interpr.o:	sc_interpr.c
-		$(COMPILE) $(AM_INCL) $*.c
+		$(COMPILE) $(AM_INCL) sc_interpr.c
 
 sc_error.o:	sc_error.c
-		$(COMPILE) $(AM_INCL) $*.c
+		$(COMPILE) $(AM_INCL) sc_error.c
 
 stdwinmodule.o:	stdwinmodule.c
-		$(COMPILE) $(STDW_INCL) $*.c
+		$(COMPILE) $(STDW_INCL) stdwinmodule.c
 
 timemodule.o:	timemodule.c
-		$(COMPILE) $(SIGTYPEDEF) $(BSDTIMEDEF) $*.c
+		$(COMPILE) $(SIGTYPEDEF) $(BSDTIMEDEF) timemodule.c
 
 tokenizer.o:	tokenizer.c
-		$(COMPILE) $(RL_USE) $*.c
+		$(COMPILE) $(RL_USE) tokenizer.c
 
 .PRECIOUS:	python libpython.a glmodule.c graminit.c graminit.h
 
