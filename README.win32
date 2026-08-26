@@ -2,5 +2,5 @@ Python 0.9.1 on Windows
 =======================
 
 The removal of the posix module and a few changes to the Makefile
-later, this fossil actually builds and runs! Just cd into src/ and
-run make as before and that's it!
+later, this fossil actually builds and runs on Windows! Just cd 
+into src/ and run make as before and that's it!
