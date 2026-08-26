@@ -36,8 +36,8 @@ jobs:
 
       - name: Build Pandoc (.tex)
         run: |
-          pandoc --toc -s --mathjax doc/tut.tex -o _site/tut.html
-          pandoc --toc -s --mathjax doc/mod.tex -o _site/mod.html
+          pandoc --toc -s --mathjax doc/tut.tex -o /github/workspace/_site/tut.html
+          pandoc --toc -s --mathjax doc/mod.tex -o /github/workspace/_site/mod.html
 
       # Upload combined site
       - name: Upload artifact
