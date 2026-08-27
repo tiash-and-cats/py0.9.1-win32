@@ -46,7 +46,7 @@ jobs:
 
       - name: Build man page to html
         run: |
-          sudo groff -man -Thtml python.man > ./_site/manpage.html
+          sudo bash -c "groff -man -Thtml python.man > ./_site/manpage.html"
 
       # Upload combined site
       - name: Upload artifact
