@@ -26,6 +26,11 @@ jobs:
       
       - name: Install Pandoc
         uses: pandoc/actions/setup@v1
+      
+      - name: Install groff
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y groff ghostscript
         
       - name: Build Jekyll (.md)
         uses: actions/jekyll-build-pages@v1
@@ -33,12 +38,15 @@ jobs:
           source: ./doc
           destination: ./_site
 
-
       - name: Build Pandoc (.tex)
         run: |
           cd doc
           sudo pandoc --toc -s --mathjax tut.tex -o ../_site/tut.html
           sudo pandoc --toc -s --mathjax mod.tex -o ../_site/mod.html
+
+      - name: Build man page to html
+        run: |
+          sudo groff -man -Thtml python.man > ./_site/manpage.html
 
       # Upload combined site
       - name: Upload artifact
