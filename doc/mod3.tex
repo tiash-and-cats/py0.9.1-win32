@@ -12,28 +12,28 @@ This module defines some constants useful for checking character
 classes, some exceptions, and some useful string functions.
 The constants are:
 \begin{description}
-\funcitem{digits}
+\dataitem{digits}
 The string
 {\tt '0123456789'}.
-\funcitem{hexdigits}
+\dataitem{hexdigits}
 The string
 {\tt '0123456789abcdefABCDEF'}.
-\funcitem{letters}
+\dataitem{letters}
 The concatenation of the strings	
 {\tt lowercase}
 and
 {\tt uppercase}
 described below.
-\funcitem{lowercase}
+\dataitem{lowercase}
 The string
 {\tt 'abcdefghijklmnopqrstuvwxyz'}.
-\funcitem{octdigits}
+\dataitem{octdigits}
 The string
 {\tt '01234567'}.
-\funcitem{uppercase}
+\dataitem{uppercase}
 The string
 {\tt 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'}.
-\funcitem{whitespace}
+\dataitem{whitespace}
 A string containing all characters that are considered whitespace,
 i.e.,
 space, tab and newline.
@@ -331,7 +331,7 @@ The exception raised by functions in this module when they detect an
 error.
 The exception argument is a string describing the problem in more
 detail.
-\funcitem{empty}
+\dataitem{empty}
 %.br
 The rectangle returned when some operations return an empty result.
 This makes it possible to quickly check whether a result is empty:

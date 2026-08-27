@@ -15,7 +15,8 @@ This module provides access to some variables used or maintained by the
 interpreter and to functions that interact strongly with the interpreter.
 It is always available.
 \begin{description}
-\funcitem{argv}
+\dataitem{argv}
+
 The list of command line arguments passed to a {\Python} script.
 {\tt sys.argv[0]}
 is the script name.
@@ -31,21 +32,22 @@ the interpreter (but
 of
 {\tt try}
 statements are not executed!).
-\funcitem{modules}
+\dataitem{modules}
+
 Gives the list of modules that have already been loaded.
 This can be manipulated to force reloading of modules and other tricks.
-\funcitem{path}
+\dataitem{path}
 A list of strings that specifies the search path for modules.
 Initialized from the environment variable {\tt PYTHONPATH}, or an
 installation-dependent default.
-\funcitem{ps1,~ps2}
+\dataitem{ps1,~ps2}
 Strings specifying the primary and secondary prompt of the interpreter.
 These are only defined if the interpreter is in interactive mode.
 Their initial values in this case are
 {\tt '>>> '}
 and
 {\tt '... '}.
-\funcitem{stdin, stdout, stderr}
+\dataitem{stdin, stdout, stderr}
 %.br
 File objects corresponding to the interpreter's standard input, output
 and error streams.
@@ -213,7 +215,7 @@ Change the mode of
 {\tt path}
 to the numeric
 {\tt mode}.
-\funcitem{environ}
+\dataitem{environ}
 A dictionary representing the string environment at the time
 the interpreter was started.
 (Modifying this dictionary does not affect the string environment of the
@@ -746,7 +748,7 @@ in the behavior when the pathname already exists:
 finds this an error while
 {\tt name\_replace()}
 allows it, as its name suggests.)
-\funcitem{capv}
+\dataitem{capv}
 A table representing the capability environment at the time the
 interpreter was started.
 (Alas, modifying this table does not affect the capability environment
