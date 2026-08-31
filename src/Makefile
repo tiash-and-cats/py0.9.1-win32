@@ -70,8 +70,8 @@ NOSYMLINKDEF=	-DNO_LSTAT
 # the interpreter from the source/build directory as distributed will
 # find the library (admittedly a hack).
 
-DEFPYTHONPATH= .:/usr/local/lib/python:/ufs/guido/lib/python:../lib
-
+#DEFPYTHONPATH= .:/usr/local/lib/python:/ufs/guido/lib/python:../lib
+DEFPYTHONPATH= .;..\\lib
 
 # For "Pure" BSD Systems
 # ======================

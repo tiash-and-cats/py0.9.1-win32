@@ -49,6 +49,10 @@ Data members:
 #define DELIM ' '
 #endif
 
+#if defined(_WIN32) || defined(_WIN64)
+#define DELIM ';'
+#endif
+
 #ifndef DELIM
 #define DELIM ':'
 #endif
